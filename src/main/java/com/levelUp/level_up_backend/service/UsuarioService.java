@@ -60,7 +60,7 @@ public class UsuarioService {
                 Map<String, String> response = new HashMap<>();
                 response.put("message", "Login exitoso");
                 response.put("rol", usuario.getRol());
-                // Usamos el nombre, ya que no tenemos 'username'
+                response.put("email", usuario.getEmail());
                 response.put("nombreUsuario", usuario.getNombres());
 
                 return response;
