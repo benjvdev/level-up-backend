@@ -5,8 +5,8 @@ import com.levelUp.level_up_backend.service.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
+
 // --- ENDPOINTS PÚBLICOS (GET) ---
 @RestController
 @RequestMapping("/productos")

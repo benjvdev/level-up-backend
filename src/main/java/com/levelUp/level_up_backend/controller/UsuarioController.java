@@ -23,19 +23,19 @@ public class UsuarioController {
             usuarioService.registrarUsuario(datosRegistro);
             return ResponseEntity.ok("Usuario registrado correctamente.");
         } catch (Exception e) {
+
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }
 
     @PostMapping("/login")
-    public ResponseEntity<Map<String, String>> login(@RequestBody LoginRequest datosLogin) {
-
+    public ResponseEntity<?> login(@RequestBody LoginRequest datosLogin) {
         try {
-            Map<String, String> response = usuarioService.login(datosLogin);
+            Map<String, Object> response = usuarioService.login(datosLogin);
             return ResponseEntity.ok(response);
         } catch (Exception e) {
-
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of("message", e.getMessage()));
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(Map.of("message", e.getMessage()));
         }
     }
 }
