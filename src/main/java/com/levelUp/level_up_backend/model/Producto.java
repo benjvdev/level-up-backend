@@ -16,7 +16,7 @@ public class Producto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_producto;
 
-    @Column(length = 200, nullable = false)
+    @Column(length = 600, nullable = false)
     private String image;
 
     @Column(length = 200, nullable = false)
