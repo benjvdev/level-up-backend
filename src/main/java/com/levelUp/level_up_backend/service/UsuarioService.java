@@ -96,4 +96,9 @@ public class UsuarioService {
         }
         usuarioRepository.deleteById(id);
     }
+    // encontrar usuario por su email
+    public Usuario findByEmail(String email) {
+        return usuarioRepository.findByEmail(email)
+                .orElseThrow(() -> new RuntimeException("Usuario no encontrado con email: " + email));
+    }
 }
