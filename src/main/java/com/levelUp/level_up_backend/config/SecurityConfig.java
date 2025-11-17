@@ -28,6 +28,13 @@ public class SecurityConfig {
     @Autowired
     private JwtRequestFilter jwtRequestFilter;
 
+    //rutas para swagger
+    private static final String[] SWAGGER_WHITELIST = {
+            "/v3/api-docs/**",
+            "/swagger-ui/**",
+            "/swagger-ui.html"
+    };
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
@@ -40,9 +47,10 @@ public class SecurityConfig {
                 //Autorización de Rutas
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+                        .requestMatchers(SWAGGER_WHITELIST).permitAll()
                         .requestMatchers(HttpMethod.GET, "/productos", "/productos/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/usuarios/registro", "/usuarios/login").permitAll()
-                        .requestMatchers("/admin/**").hasAuthority("ADMIN") // Sigue usando hasAuthority
+                        .requestMatchers("/admin/**").hasAuthority("ADMIN")
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
