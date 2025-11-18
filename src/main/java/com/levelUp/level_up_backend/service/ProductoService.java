@@ -58,6 +58,6 @@ public class ProductoService {
         return productoRepository.findByDisponible(true);
     }
     public List<Producto> searchProductos(String query) {
-        return productoRepository.findByNombreContainingIgnoreCaseOrCategoriaContainingIgnoreCase(query, query);
+        return productoRepository.findByNombreContainingIgnoreCaseOrCategoriaContainingIgnoreCaseOrDescripcionContainingIgnoreCase(query, query,query);
     }
 }
