@@ -59,4 +59,15 @@ public class ProductoController {
         return productoService.getProductosByCategoria(categoria);
     }
 
+    @Operation(
+            summary = "Buscar productos por nombre",
+            description = "Busca productos que contengan el texto proporcionado en su nombre (ignorando mayúsculas/minúsculas)."
+    )
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Búsqueda realizada exitosamente.")
+    })
+    @GetMapping("/search")
+    public List<Producto> searchProductos(@RequestParam String query) {
+        return productoService.searchProductos(query);
+    }
 }
