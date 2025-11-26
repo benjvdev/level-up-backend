@@ -60,8 +60,8 @@ public class ProductoController {
     }
 
     @Operation(
-            summary = "Buscar productos por nombre",
-            description = "Busca productos que contengan el texto proporcionado en su nombre (ignorando mayúsculas/minúsculas)."
+            summary = "Buscar productos por su nombre",
+            description = "Busca productos que contengan el texto proporcionado en su nombre, categoria, o descripcion (ignorando mayúsculas/minúsculas)."
     )
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Búsqueda realizada exitosamente.")
