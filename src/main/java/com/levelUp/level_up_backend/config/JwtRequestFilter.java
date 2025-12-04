@@ -46,7 +46,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                 logger.warn("El token ha expirado");
             }
         } else {
-            // logger.warn("el header de autorización no empieza con 'Bearer '");
+            // logger.warn (el header de autorización no empieza con Bearer)
         }
         //si obtuvimos un username y NO hay una sesión de seguridad activa
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
